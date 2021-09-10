@@ -1,6 +1,9 @@
 import React from "react";
 // Styles
 import "./Sidebar.css";
+// Icons
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import CreateIcon from "@material-ui/icons/Create";
 
 function Sidebar() {
   return (
@@ -9,11 +12,11 @@ function Sidebar() {
         <div className="sidebar__info">
           <h2>Workspace Name</h2>
           <h3>
-            {/* status icon */}
+            <FiberManualRecordIcon />
             User Name
           </h3>
         </div>
-        {/* edit pencil icon */}
+        <CreateIcon />
       </div>
       {/* threads */}
       {/* mentions and reactions */}
