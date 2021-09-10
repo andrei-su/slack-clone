@@ -20,15 +20,14 @@ function Sidebar() {
         </div>
         <CreateIcon />
       </div>
-      <SidebarOption />
-      {/* threads */}
-      {/* mentions and reactions */}
-      {/* saved items */}
-      {/* channel browser */}
-      {/* people and user groups */}
-      {/* apps */}
-      {/* file browser */}
-      {/* show more / show less */}
+      <SidebarOption title="Threads" />
+      <SidebarOption title="Mentions & reactions" />
+      <SidebarOption title="Saved items" />
+      <SidebarOption title="Channel browser" />
+      <SidebarOption title="People & user groups" />
+      <SidebarOption title="Apps" />
+      <SidebarOption title="File browser" />
+      <SidebarOption title="Show less" />
       {/* break */}
       {/* channels */}
       {/* break */}
