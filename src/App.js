@@ -3,6 +3,7 @@ import "./App.css";
 // Components
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Chat from "./components/Chat/Chat";
 // React Router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -20,7 +21,7 @@ function App() {
               <h1>Welcome</h1>
             </Route>
             <Route path="/room/:roomId">
-              <h1>Chat screen</h1>
+              <Chat />
             </Route>
           </Routes>
         </div>
