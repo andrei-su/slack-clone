@@ -4,7 +4,7 @@ function App() {
   return (
     // BEM naming convention 
     // app instead of App for class name
-    <div className="App"></div>
+    <div className="app"></div>
   );
 }
 
