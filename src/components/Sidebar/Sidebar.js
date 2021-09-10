@@ -59,8 +59,6 @@ function Sidebar() {
       {channels.map((channel) => (
         <SidebarOption title={channel.name} id={channel.id} />
       ))}
-      {/* connect to DB and list all the channels */}
-      {/* <SidebarOption ... /> */}
     </div>
   );
 }
