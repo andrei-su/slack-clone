@@ -1,4 +1,6 @@
 import React from "react";
+// Components
+import SidebarOption from "../SidebarOption/SidebarOption";
 // Styles
 import "./Sidebar.css";
 // Icons
@@ -18,6 +20,7 @@ function Sidebar() {
         </div>
         <CreateIcon />
       </div>
+      <SidebarOption />
       {/* threads */}
       {/* mentions and reactions */}
       {/* saved items */}
