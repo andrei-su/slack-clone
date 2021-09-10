@@ -2,6 +2,7 @@
 import "./App.css";
 // Components
 import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
     // app instead of App for class name
     <div className="app">
       <Header />
-      {/* Sidebar */}
+      <div className="app__body">
+        <Sidebar />
+      </div>
       {/* React-Router -> Chat screen */}
     </div>
   );
