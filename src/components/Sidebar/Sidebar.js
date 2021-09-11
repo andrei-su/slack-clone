@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-// Link
-import { Link } from "react-router-dom";
 // Components
 import SidebarOption from "../SidebarOption/SidebarOption";
 // Styles
