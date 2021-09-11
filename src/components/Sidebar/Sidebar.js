@@ -16,13 +16,13 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
-import db, { collection, onSnapshot } from "../../firebase";
+import * as firebase from "../../firebase";
 
 function Sidebar() {
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
-    onSnapshot(collection(db, "rooms"), (snapshot) =>
+    firebase.onSnapshot(firebase.collection(firebase.db, "rooms"), (snapshot) =>
       setChannels(
         snapshot.docs.map((doc) => ({
           id: doc.id,
