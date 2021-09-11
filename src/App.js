@@ -1,3 +1,4 @@
+import { useState } from "react";
 // Styles
 import "./App.css";
 // Components
@@ -8,19 +9,29 @@ import Chat from "./components/Chat/Chat";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [user, setUser] = useState(null);
   return (
     // BEM naming convention
     // app instead of App for class name
     <div className="app">
       <Router>
-        <Header />
-        <div className="app__body">
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<h1>Welcome</h1>} />
-            <Route path="/room/:roomId" element={<Chat />} />
-          </Routes>
-        </div>
+        {!user ? (
+          <h1>
+            LOGIN PAGE
+            {/* <Login /> */}
+          </h1>
+        ) : (
+          <>
+            <Header />
+            <div className="app__body">
+              <Sidebar />
+              <Routes>
+                <Route path="/" element={<h1>Welcome</h1>} />
+                <Route path="/room/:roomId" element={<Chat />} />
+              </Routes>
+            </div>
+          </>
+        )}
       </Router>
     </div>
   );
