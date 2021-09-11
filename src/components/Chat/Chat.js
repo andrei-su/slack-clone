@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // Params
 import { useParams } from "react-router";
 // Firebase
-import * as firebase from "../../firebase";
+import * as fb from "../../firebase";
 // Styles
 import "./Chat.css";
 // Icons
@@ -12,14 +12,22 @@ import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 function Chat() {
   const { roomId } = useParams();
   const [roomDetails, setRoomDetails] = useState(null);
+  const [roomMessages, setRoomMessages] = useState(null);
 
   useEffect(() => {
     if (roomId) {
-      firebase.onSnapshot(
-        firebase.doc(firebase.db, "rooms", roomId),
-        (snapshot) => setRoomDetails(snapshot.data())
+      fb.onSnapshot(fb.doc(fb.db, "rooms", roomId), (snapshot) =>
+        setRoomDetails(snapshot.data())
       );
     }
+
+    fb.onSnapshot(
+      fb.query(
+        fb.collection(fb.doc(fb.db, "rooms", roomId), "messages"),
+        fb.orderBy("timestamp", "asc")
+      ),
+      (snapshot) => setRoomMessages(snapshot.docs.map((doc) => doc.data()))
+    );
   }, [roomId]);
 
   return (
