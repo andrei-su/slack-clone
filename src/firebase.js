@@ -4,6 +4,7 @@ import {
   collection,
   onSnapshot,
   addDoc,
+  doc,
 } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
@@ -21,4 +22,4 @@ const db = getFirestore();
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-export { db, auth, provider, collection, onSnapshot, addDoc };
+export { db, auth, provider, collection, onSnapshot, addDoc, doc };
