@@ -8,6 +8,7 @@ import "./Chat.css";
 // Icons
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import Message from "../Message/Message";
 
 function Chat() {
   const { roomId } = useParams();
@@ -44,6 +45,10 @@ function Chat() {
             <InfoOutlinedIcon /> Details
           </p>
         </div>
+      </div>
+
+      <div className="chat__messages">
+        <Message />
       </div>
     </div>
   );
