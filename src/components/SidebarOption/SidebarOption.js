@@ -1,22 +1,10 @@
 import React from "react";
-// History
-import { createBrowserHistory } from "history";
 // Firebase
 import * as firebase from "../../firebase";
 // Styles
 import "./SidebarOption.css";
 
-function SidebarOption({ Icon, title, id, addChannelOption }) {
-  const history = createBrowserHistory();
-
-  const selectChannel = () => {
-    if (id) {
-      history.push(`/room/${id}`);
-    } else {
-      history.push(title);
-    }
-  };
-
+function SidebarOption({ Icon, title, addChannelOption }) {
   const addChannel = () => {
     const channelName = prompt("Please enter the channel name");
     if (channelName) {
@@ -27,10 +15,7 @@ function SidebarOption({ Icon, title, id, addChannelOption }) {
   };
 
   return (
-    <div
-      className="sidebarOption"
-      onClick={addChannelOption ? addChannel : selectChannel}
-    >
+    <div className="sidebarOption" onClick={addChannelOption && addChannel}>
       {Icon && <Icon className="sidebarOption__icon" />}
       {Icon ? (
         <h3>{title}</h3>
