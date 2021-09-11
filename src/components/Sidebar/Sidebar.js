@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SidebarOption from "../SidebarOption/SidebarOption";
 // Styles
 import "./Sidebar.css";
+import { StyledLink } from "./Sidebar.styles";
 // Icons
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import CreateIcon from "@material-ui/icons/Create";
@@ -59,9 +60,9 @@ function Sidebar() {
       <hr />
       <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
       {channels.map((channel) => (
-        <Link to={`/room/${channel.id}`}>
+        <StyledLink to={`/room/${channel.id}`}>
           <SidebarOption title={channel.name} />
-        </Link>
+        </StyledLink>
       ))}
     </div>
   );
