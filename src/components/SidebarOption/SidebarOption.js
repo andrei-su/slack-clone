@@ -1,6 +1,8 @@
 import React from "react";
 // History
 import { createBrowserHistory } from "history";
+// Firebase
+import * as firebase from "../../firebase";
 // Styles
 import "./SidebarOption.css";
 
@@ -16,6 +18,12 @@ function SidebarOption({ Icon, title, id, addChannelOption }) {
   };
 
   const addChannel = () => {
+    const channelName = prompt("Please enter the channel name");
+    if (channelName) {
+      firebase.addDoc(firebase.collection(firebase.db, "rooms"), {
+        name: channelName,
+      });
+    }
   };
 
   return (
