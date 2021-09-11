@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+// Link
+import { Link } from "react-router-dom";
 // Components
 import SidebarOption from "../SidebarOption/SidebarOption";
 // Styles
@@ -57,7 +59,9 @@ function Sidebar() {
       <hr />
       <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
       {channels.map((channel) => (
-        <SidebarOption title={channel.name} id={channel.id} />
+        <Link to={`/room/${channel.id}`}>
+          <SidebarOption title={channel.name} />
+        </Link>
       ))}
     </div>
   );

@@ -17,12 +17,8 @@ function App() {
         <div className="app__body">
           <Sidebar />
           <Routes>
-            <Route path="/">
-              <h1>Welcome</h1>
-            </Route>
-            <Route path="/room/:roomId">
-              <Chat />
-            </Route>
+            <Route path="/" element={<h1>Welcome</h1>} />
+            <Route path="/room/:roomId" element={<Chat />} />
           </Routes>
         </div>
       </Router>
