@@ -1,4 +1,8 @@
 import React from "react";
+// Data Layer
+import { useStateProviderValue } from "../../StateProvider";
+// Action Types
+import { actionTypes } from "../../reducer";
 // Firebase
 import * as fb from "../../firebase";
 // Components
@@ -9,10 +13,16 @@ import { SLACK_IMAGE } from "../../config";
 import "./Login.css";
 
 function Login() {
+  const [{ user }, dispatch] = useStateProviderValue();
+
   const signIn = () => {
     fb.signInWithPopup(fb.auth, fb.provider)
       .then((result) => {
         console.log(result);
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: result.user,
+        });
       })
       .catch((error) => {
         alert(error.message);
