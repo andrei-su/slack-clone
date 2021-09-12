@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+// Data Layer
+import { useStateProviderValue } from "../../StateProvider";
 // Components
 import SidebarOption from "../SidebarOption/SidebarOption";
 // Styles
@@ -21,6 +23,7 @@ import * as firebase from "../../firebase";
 
 function Sidebar() {
   const [channels, setChannels] = useState([]);
+  const [{ user }] = useStateProviderValue();
 
   useEffect(() => {
     firebase.onSnapshot(firebase.collection(firebase.db, "rooms"), (snapshot) =>
@@ -40,7 +43,7 @@ function Sidebar() {
           <h2>Workspace Name</h2>
           <h3>
             <FiberManualRecordIcon />
-            User Name
+            {user?.displayName}
           </h3>
         </div>
         <CreateIcon />

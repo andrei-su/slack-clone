@@ -1,4 +1,6 @@
 import React from "react";
+// Data Layer
+import { useStateProviderValue } from "../../StateProvider";
 // Styles
 import "./Header.css";
 // Avatar
@@ -9,13 +11,15 @@ import SearchIcon from "@material-ui/icons/Search";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 
 function Header() {
+  const [{ user }] = useStateProviderValue();
+
   return (
     <div className="header">
       <div className="header__left">
         <Avatar
           className="header__avatar"
-          alt='User Name'
-          src=''
+          alt={user?.displayName}
+          src={user?.photoURL}
         />
         <AccessTimeIcon />
       </div>
