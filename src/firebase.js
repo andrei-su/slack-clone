@@ -8,7 +8,7 @@ import {
   query,
   orderBy,
 } from "firebase/firestore";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBt0gIOxPeeyo763mn22EKvEvf-7V7Ee6k",
@@ -34,4 +34,5 @@ export {
   doc,
   query,
   orderBy,
+  signInWithPopup,
 };

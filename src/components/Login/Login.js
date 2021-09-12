@@ -1,22 +1,34 @@
-import { Button } from '@material-ui/core'
-import React from 'react'
+import React from "react";
+// Firebase
+import * as fb from "../../firebase";
+// Components
+import { Button } from "@material-ui/core";
 // Image
-import { SLACK_IMAGE } from '../../config'
+import { SLACK_IMAGE } from "../../config";
 // Styles
-import './Login.css'
+import "./Login.css";
 
 function Login() {
-    return (
-        <div className='login'>
-            <div className="login__container">
-                <img src={SLACK_IMAGE} alt="" />
-                <h1>Sign in to "The slack workspace"</h1>
-                <p>"workspace".slack.com</p>
-                <Button>Sign in with Google</Button>
-            </div>
-            
-        </div>
-    )
+  const signIn = () => {
+    fb.signInWithPopup(fb.auth, fb.provider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+
+  return (
+    <div className="login">
+      <div className="login__container">
+        <img src={SLACK_IMAGE} alt="" />
+        <h1>Sign in to "The slack workspace"</h1>
+        <p>"workspace".slack.com</p>
+        <Button onClick={signIn}>Sign in with Google</Button>
+      </div>
+    </div>
+  );
 }
 
-export default Login
+export default Login;
