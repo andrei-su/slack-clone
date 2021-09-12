@@ -1,16 +1,18 @@
-import { useState } from "react";
-// Styles
-import "./App.css";
+// React Router
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// DataLayer
+import { useStateProviderValue } from "./StateProvider";
 // Components
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Chat from "./components/Chat/Chat";
 import Login from "./components/Login/Login";
-// React Router
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// Styles
+import "./App.css";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [{ user }, dispatch] = useStateProviderValue();
+  
   return (
     // BEM naming convention
     // app instead of App for class name
