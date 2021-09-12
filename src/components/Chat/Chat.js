@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 // Firebase
 import * as fb from "../../firebase";
+// Components
+import Message from "../Message/Message";
+import ChatInput from "../ChatInput/ChatInput";
 // Styles
 import "./Chat.css";
 // Icons
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
-import Message from "../Message/Message";
 
 function Chat() {
   const { roomId } = useParams();
@@ -57,6 +59,8 @@ function Chat() {
           />
         ))}
       </div>
+
+      <ChatInput channelName={roomDetails?.name} channelId={roomId} />
     </div>
   );
 }
