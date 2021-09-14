@@ -7,6 +7,7 @@ import {
   doc,
   query,
   orderBy,
+  serverTimestamp,
 } from "firebase/firestore";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -35,4 +36,5 @@ export {
   query,
   orderBy,
   signInWithPopup,
+  serverTimestamp,
 };
