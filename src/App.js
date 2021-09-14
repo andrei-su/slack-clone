@@ -11,7 +11,7 @@ import Login from "./components/Login/Login";
 import "./App.css";
 
 function App() {
-  const [{ user }, dispatch] = useStateProviderValue();
+  const [{ user }] = useStateProviderValue();
   
   return (
     // BEM naming convention
