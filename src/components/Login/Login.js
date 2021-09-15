@@ -13,6 +13,7 @@ import { SLACK_IMAGE } from "../../config";
 import "./Login.css";
 
 function Login() {
+  // eslint-disable-next-line no-unused-vars
   const [{ user }, dispatch] = useStateProviderValue();
 
   const signIn = () => {
