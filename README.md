@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Slack clone React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <img alt="Slack clone main page"  src="./images/s.png"/>
+</p>
 
-## Available Scripts
+This project cosists of a **React** app ⚛️ Which has as a theme, *The Slack Web App*. The app makes the use of modern **Functional components** and **React hooks**. The project uses the **React Context API** for storing the user in a global state accessible for all the components from anywhere within the application down the component tree by using the created `useStateProvider` hook. The application also uses the **React Router** for managing the routes inside of the application. The project is deployed using **Google Firebase**, and it integrates a **CI/CD** pipeline for automatic inegration and automatic deployment to Firebase for ease of development. The deployment checks run when creating a pull request or when commiting directly to the *main* branch. The project uses the Google Firestore Database that comes with the Firebase suite of features and services. The database is used to store the *"slack"* channels called rooms, and each associated message in that room, with the name of the user, the message, profile picture and a timestamp as the contents.
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+# Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The project is hosted at:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+https://slack-clone-9.web.app/
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Features
 
-### `npm run build`
+* Login functionality with Google Oauth services using personal Google account credentials 🔐
+* Adding a communication channel called room
+* Composing a text message
+* Showing in real time the conversation history 📚
+* Sorting messages in conversation from oldest to most recent
+* Firestore database storage of messages inside each room
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Technologies used :
+<br>
+<h2> 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="React" width="70px" src="./images/r.png"/>
+* React  
 
-### `npm run eject`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="Firebase" width="70px" src="./images/f.png"/>
+* Firebase hosting  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="Firestore Database" width="100px" src="./images/fs.png"/>
+* Firestore Database &nbsp;&nbsp;&nbsp;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="CI/CD" width="100px" src="./images/c.png"/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* CI/CD pipeline &nbsp;&nbsp;&nbsp; 
+</h1> 
+</br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Log in page 
+</br>
+<p align="center">
+    <img alt="Slack clone Login page"  src="./images/l.png"/>
+</p>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# CI/CD
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The rules for the CI/CD pipeline are present in a github workflows folder inside of the project. The rules are contained inside of two files used by firebase when commiting to the main branch and creating a pull request to the main branch: `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml`. 
 
-### Code Splitting
+<img align='center' alt="firebase-hosting-pull-request.yml" width="500px" src="./images/c0.png"/>
+<img align='center' alt="firebase-hosting-merge.yml" width="500px" src="./images/c1.png"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
+<br>
 
-### Analyzing the Bundle Size
+In the beginning the first deployment was unsuccesful due to an error
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img align='center' alt="Failed job run" src="./images/c2.png"/>
 
-### Making a Progressive Web App
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The error was caused by the missing of the package-lock.json file and it was fixed by removing the file from the gitignore rules file.
 
-### Advanced Configuration
+After the fix all the checks from the automatic deployment on Firebase have passed and the site went live
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<img align='center' alt="Success job run" src="./images/c3.png"/>
 
-### Deployment
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Now when creating a pull request to the main branch or when commiting directly on the main branch,
+ the automatic deployment rules execute and run the checks for the new build.
 
-### `npm run build` fails to minify
+<img align='center' alt="Success job run" src="./images/c4.png"/>
+<br>
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# To run the project locally
+
+## Pre-requisites:
+- node installed (e.g. version used: v14.15.1)
+- npm installed (e.g. version used: 6.14.8)
+
+## Steps:
+
+1. Clone the repository
+2. Open the command line in the project folder.
+3. From the command line write the following comands in order:
+```
+npm i
+npm start
+```
+4. If port 3000 is not in use, then the React app will start at:
+- http://localhost:3000
+
+### Have fun with project and thank you for your attention. 😊 😉
