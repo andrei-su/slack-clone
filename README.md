@@ -10,9 +10,11 @@ This project cosists of a **React** app ⚛️ Which has as a theme, *The Slack 
 
 # Demo
 
-The project is hosted at:
+The project is online:
 
-https://slack-clone-9.web.app/
+<h3>
+
+[LIVE DEMO HERE](https://slack-clone-9.web.app/)
 
 <br>
 
@@ -34,7 +36,7 @@ https://slack-clone-9.web.app/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="React" width="70px" src="./images/r.png"/>
 * React  
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="Firebase" width="70px" src="./images/f.png"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="Firebase" width="70px" src="./images/fh.png"/>
 * Firebase hosting  
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="Firestore Database" width="100px" src="./images/fs.png"/>
@@ -43,6 +45,10 @@ https://slack-clone-9.web.app/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="CI/CD" width="100px" src="./images/c.png"/>
 
 * CI/CD pipeline &nbsp;&nbsp;&nbsp; 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img align='center' alt="CI/CD" width="120px" src="./images/m.png"/>
+
+* Material UI &nbsp;&nbsp;&nbsp; 
 </h1> 
 </br>
 
