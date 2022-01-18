@@ -14,7 +14,7 @@ The project is online:
 
 <h3>
 
-[LIVE DEMO HERE](https://slack-clone-9.web.app/)
+[LIVE DEMO HERE](https://slack-clone9.web.app/)
 
 <br>
 
