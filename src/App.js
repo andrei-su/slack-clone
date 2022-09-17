@@ -1,17 +1,35 @@
 // React Router
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // DataLayer
-import { useStateProviderValue } from "./StateProvider";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from './firebase';
+import { SLACK_IMAGE } from './config';
 // Components
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Chat from "./components/Chat/Chat";
-import Login from "./components/Login/Login";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Chat from "./components/Chat";
+import Login from "./components/Login";
+import Spinner from 'react-spinkit';
 // Styles
-import "./App.css";
+import styled from 'styled-components';
 
 function App() {
-  const [{ user }] = useStateProviderValue();
+  const [user, loading] = useAuthState(auth);
+
+  if (loading) {
+    return (
+      <AppLoading>
+        <AppLoadingContents>
+          <img src={SLACK_IMAGE} alt="Slack logo" />
+          <Spinner
+            name='ball-spin-fade-loader'
+            color='purple'
+            fadeIn='none'
+          />
+        </AppLoadingContents>
+      </AppLoading>
+    );
+  }
   
   return (
     // BEM naming convention
@@ -23,13 +41,14 @@ function App() {
         ) : (
           <>
             <Header />
-            <div className="app__body">
+            <AppBody>
               <Sidebar />
-              <Routes>
-                <Route path="/" element={<h1>Welcome</h1>} />
-                <Route path="/room/:roomId" element={<Chat />} />
-              </Routes>
-            </div>
+              <Switch>
+                <Route exact path="/">
+                  <Chat />
+                </Route>
+              </Switch>
+            </AppBody>
           </>
         )}
       </Router>
@@ -38,3 +57,30 @@ function App() {
 }
 
 export default App;
+
+const AppBody = styled.div`
+  display: flex;
+  height: 100vh;
+`;
+
+const AppLoading = styled.div`
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100%;
+`;
+
+const AppLoadingContents = styled.div`
+  text-align: center;
+  padding-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > img {
+    height: 100px;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+`;

@@ -1,15 +1,4 @@
-import { initializeApp } from "firebase/app";
-import {
-  getFirestore,
-  collection,
-  onSnapshot,
-  addDoc,
-  doc,
-  query,
-  orderBy,
-  serverTimestamp,
-} from "firebase/firestore";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import firebase from "firebase";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAsN-NRC3iArMfE0gypNuDbMyLDu5CJsr4",
@@ -20,21 +9,9 @@ const firebaseConfig = {
   appId: "1:174316682985:web:ab1cf64bfead39386dba78"
 };
 
-initializeApp(firebaseConfig);
-const db = getFirestore();
-const auth = getAuth();
-const provider = new GoogleAuthProvider();
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-export {
-  db,
-  auth,
-  provider,
-  collection,
-  onSnapshot,
-  addDoc,
-  doc,
-  query,
-  orderBy,
-  signInWithPopup,
-  serverTimestamp,
-};
+export { db, auth, provider };
